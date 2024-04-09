@@ -129,6 +129,7 @@ If you get stuck, you can ask for help in the Plugin Forum.
 == Changelog ==
 
 = 8.2.0 - xxxx-xx-xx =
+* Tweak - Credit card brand selection disabled when the "Legacy checkout experience" is enabled.
 * Add - Additional information is displayed on the "Payment methods" page when listing co-branded credit cards.
 - Tweak - Remove the functionality for saving the customized statement descriptors.
 * Tweak - Remove unused WC_Stripe_Old_Settings_UPE_Toggle_Controller class and related scripts.
