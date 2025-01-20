@@ -19,6 +19,7 @@ import {
 	onClickHandler,
 	onCompletePaymentHandler,
 	onConfirmHandler,
+	onConfirmHandlerForBlocksAPI,
 	onReadyHandler,
 	shippingAddressChangeHandler,
 	shippingRateChangeHandler,
@@ -233,7 +234,17 @@ jQuery( function ( $ ) {
 
 			eceButton.on( 'confirm', async ( event ) => {
 				const order = options.order ? options.order : 0;
-
+				if ( getExpressCheckoutData( 'use_blocks_api' ) ) {
+					return await onConfirmHandlerForBlocksAPI(
+						api,
+						api.getStripe(),
+						elements,
+						wcStripeECE.completePayment,
+						wcStripeECE.abortPayment,
+						event,
+						order
+					);
+				}
 				return await onConfirmHandler(
 					api,
 					api.getStripe(),
